@@ -1,0 +1,22 @@
+:host{
+	display: flex;
+	flex-direction: column;
+	background: linear-gradient(to top, rgba(25,25,25,1), rgba(25,25,25,0));
+}
+::ng-deep .primary{
+	background: rgba(25,25,25,0.75);
+}
+::ng-deep .mgl-timeline-line{
+	background-color: #C33764 !important;
+}
+::ng-deep .mgl-timeline-entry-card, ::ng-deep .mgl-timeline-entry-card-header{
+	background: transparent !important;
+}
+::ng-deep mgl-timeline-entry-header{
+	display: flex !important;
+	flex-direction: row;
+	justify-content: center;
+}
+mgl-timeline-entry-dot{
+	cursor: pointer;
+}
