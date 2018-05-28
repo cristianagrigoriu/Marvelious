@@ -1,30 +1,11 @@
 <mgl-timeline [toggle]="true">
-  <mgl-timeline-entry>
+  <mgl-timeline-entry *ngFor="let hero of heroes">
       <mgl-timeline-entry-header>
-        <mrv-hero name="black_panther"></mrv-hero>
+        <mrv-hero [name]="hero.name" [image]="hero.image"></mrv-hero>
       </mgl-timeline-entry-header>
-      <mgl-timeline-entry-content></mgl-timeline-entry-content>
+      <mgl-timeline-entry-content>
+        <button (click)="openDialog(hero)">View More</button>
+      </mgl-timeline-entry-content>
       <mgl-timeline-entry-dot></mgl-timeline-entry-dot>
   </mgl-timeline-entry>
-  <mgl-timeline-entry>
-    <mgl-timeline-entry-header>
-      <mrv-hero name="doctor_strange"></mrv-hero>
-    </mgl-timeline-entry-header>
-    <mgl-timeline-entry-content></mgl-timeline-entry-content>
-    <mgl-timeline-entry-dot></mgl-timeline-entry-dot>
-  </mgl-timeline-entry>
-  <mgl-timeline-entry>
-    <mgl-timeline-entry-header>
-      <mrv-hero name="captain_america"></mrv-hero>
-    </mgl-timeline-entry-header>
-    <mgl-timeline-entry-content></mgl-timeline-entry-content>
-    <mgl-timeline-entry-dot></mgl-timeline-entry-dot>
-</mgl-timeline-entry>
-<mgl-timeline-entry>
-  <mgl-timeline-entry-header>
-    <mrv-hero name="ironman"></mrv-hero>
-  </mgl-timeline-entry-header>
-  <mgl-timeline-entry-content></mgl-timeline-entry-content>
-  <mgl-timeline-entry-dot></mgl-timeline-entry-dot>
-</mgl-timeline-entry>
 </mgl-timeline>

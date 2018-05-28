@@ -1,0 +1,42 @@
+:host{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	position: relative;
+	height: 100%;
+}
+
+::ng-deep mrv-hero.modal{
+	flex-direction: column !important;
+
+	figure{
+		border-radius: 0 !important;
+		border: none !important;
+	}
+
+	h3{
+		color: black !important;
+	}
+}
+
+.content{
+	flex-grow: 1;
+	height: 100%;
+	overflow: auto;
+	p{
+		white-space: pre-line;
+		line-height: 1.5;
+		font-family: 'Roboto';
+	}
+}
+
+.close{
+	position: absolute;
+	top: -18px;
+	right: -18px;
+	font-size: 24px;
+	font-family: 'Roboto';
+	opacity: 0.75;
+	cursor: pointer;
+}

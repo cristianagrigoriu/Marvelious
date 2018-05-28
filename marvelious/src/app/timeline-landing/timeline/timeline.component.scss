@@ -4,7 +4,11 @@
 	background: linear-gradient(to top, rgba(25,25,25,1), rgba(25,25,25,0));
 }
 ::ng-deep .primary{
-	background: rgba(25,25,25,0.75);
+	background: #C33764 !important;
+	border: 5px solid transparent;
+	&:hover{
+		border: 5px solid darken(#C33764, 10);
+	}
 }
 ::ng-deep .mgl-timeline-line{
 	background-color: #C33764 !important;
@@ -12,11 +16,26 @@
 ::ng-deep .mgl-timeline-entry-card, ::ng-deep .mgl-timeline-entry-card-header{
 	background: transparent !important;
 }
-::ng-deep mgl-timeline-entry-header{
+::ng-deep mgl-timeline-entry-header, ::ng-deep mgl-timeline-entry-content{
 	display: flex !important;
 	flex-direction: row;
 	justify-content: center;
 }
 mgl-timeline-entry-dot{
 	cursor: pointer;
+}
+
+button{
+	border: 0;
+	padding: 5px 15px;
+	margin-top: 10px;
+	cursor: pointer;
+	background-color: #C33764;
+	font-family: "Bebas Neue";
+	text-transform: uppercase;
+	font-size: 24px;
+	line-height: 1;
+	color: white;
+	border: 5px solid darken(#C33764, 10);
+	outline: none !important;
 }

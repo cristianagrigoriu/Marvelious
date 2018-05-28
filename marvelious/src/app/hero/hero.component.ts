@@ -7,10 +7,11 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class HeroComponent implements OnInit {
 
-  @Input() name:string = 'black_panther';
+  @Input() name:string;
+  @Input() image:string;
 
   get path(){
-    return `assets/heroes/${this.name}.png`;
+    return `assets/heroes/${this.image}.png`;
   }
 
   constructor() { }
