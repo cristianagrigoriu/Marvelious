@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Hero } from '../model';
 
 @Component({
   selector: 'mrv-hero',
@@ -7,12 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class HeroComponent implements OnInit {
 
-  @Input() name:string;
-  @Input() image:string;
-
-  get path(){
-    return `assets/heroes/${this.image}.png`;
-  }
+  @Input() hero:Hero;
 
   constructor() { }
 

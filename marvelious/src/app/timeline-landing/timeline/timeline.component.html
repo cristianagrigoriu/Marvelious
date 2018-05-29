@@ -1,8 +1,9 @@
 <mgl-timeline [toggle]="true">
-  <mgl-timeline-entry *ngFor="let hero of heroes">
+  <mgl-timeline-entry *ngFor="let hero of heroes; let i = index">
       <mgl-timeline-entry-header>
-        <mrv-hero [name]="hero.name" [image]="hero.image"></mrv-hero>
+        <mrv-hero [hero]="hero"></mrv-hero>
       </mgl-timeline-entry-header>
+      <mgl-timeline-entry-side>{{formatDate(hero.start)}}</mgl-timeline-entry-side>
       <mgl-timeline-entry-content>
         <button (click)="openDialog(hero)">View More</button>
       </mgl-timeline-entry-content>

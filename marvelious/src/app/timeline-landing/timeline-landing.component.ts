@@ -1,5 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { Hero } from '../model';
+import { DataService } from '../data.service';
+
+enum FocusType{
+  Events= <any>'events',
+  Heroes= <any>'heroes',
+  Comics= <any>'comics'
+}
 
 @Component({
   selector: 'mrv-timeline-landing',
@@ -8,41 +15,130 @@ import { Hero } from '../model';
 })
 export class TimelineLandingComponent implements OnInit {
 
-  heroes: Hero[] = [{
-    name: 'Black Panther',
-    image: 'black_panther',
-    description: `
-    Real Name: T'Challa
+  current: Hero[];
+  events: Hero[];
+  heroes: Hero[];
+  comics: Hero[];
+  active: string;
 
-    Height: 6'
+  constructor(private dataService: DataService) {
 
-    Weight: 200 lbs.
-
-    Powers: T'Challa's senses and physical attributes have been enhanced to superhuman levels by the heart-shaped herb.
-
-    Abilities: T'Challa is a brilliant tactician, strategist, scientist, tracker and a master of all forms of unarmed combat whose unique hybrid fighting style incorporates acrobatics and aspects of animal mimicry.
-
-    Group Affiliations:  Formerly Fantastic Four, Secret Avengers, Avengers, Pendragons, Queen's Vengeance, former Fantastic Force financier
-
-    First Appearance: Fantastic Four Vol. 1 #52 (1966)
-    `
-  }, {
-    name: 'Doctor Strange',
-    image: 'doctor_strange'
-  }, {
-    name: 'Captain America',
-    image: 'captain_america'
-  }, {
-    name: 'Ironman',
-    image: 'ironman'
-  }, {
-    name: 'Black Widow',
-    image: 'black_widow'
-  }];
-
-  constructor() { }
+  }
 
   ngOnInit() {
+    this.focusEvents();
+  }
+
+  focusEvents(){
+    this.active = 'events';
+    this.focus(FocusType.Events);
+  }
+
+  focusComics(){
+    this.active = 'comics';
+    this.focus(FocusType.Comics);
+  }
+
+  focusHeroes(){
+    this.active = 'heroes';
+    this.focus(FocusType.Heroes);
+  }
+
+  focus(entry: FocusType){
+    this.current = undefined;
+    switch(entry){
+      case FocusType.Comics:
+        if (this.comics){
+          this.current = this.comics;
+        } else{
+          this.dataService.getComics().subscribe((res:Hero[])=>{
+            this.comics = res;
+            this.current = res;
+          });
+        }
+        break;
+      case FocusType.Events:
+        if (this.events){
+          this.current = this.events;
+        } else{
+          this.dataService.getEvents().subscribe((res:Hero[])=>{
+            this.events = res;
+            this.current = res;
+          });
+        }
+        break;
+      case FocusType.Heroes:
+        if (this.heroes){
+          this.current = this.heroes;
+        } else{
+          this.dataService.getHeroes().subscribe((res:Hero[])=>{
+            this.heroes = res;
+            this.current = res;
+          });
+        }
+        break;
+    }
+  }
+
+  loadLazy: boolean = false;
+
+  nextLazy(){
+    switch(this.active){
+      case 'events':
+        this.lazyLoad(FocusType.Events);
+        break;
+      case 'heroes':
+        this.lazyLoad(FocusType.Heroes);
+        break;
+      case 'comics':
+        this.lazyLoad(FocusType.Comics);
+        break;
+    }
+  }
+
+  goTop(){
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  }
+
+  goBottom(){
+    var body = document.body,
+    html = document.documentElement;
+
+    var height = Math.max( body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight );
+    window.scrollTo({
+      top: height,
+      behavior: "smooth"
+    });
+  }
+
+  lazyLoad(entry: FocusType){
+    this.loadLazy = true;
+    switch(entry){
+      case FocusType.Comics:
+        this.dataService.getComics(this.comics.length).subscribe((res:Hero[])=>{
+          this.comics.push(...res);
+          this.current = this.comics;
+          this.loadLazy = false;
+        });
+        break;
+      case FocusType.Events:
+        this.dataService.getEvents(this.events.length).subscribe((res:Hero[])=>{
+          this.events.push(...res);
+          this.current = this.events;
+          this.loadLazy = false;
+        });
+        break;
+      case FocusType.Heroes:
+        this.dataService.getHeroes(this.heroes.length).subscribe((res:Hero[])=>{
+          this.heroes.push(...res);
+          this.current = this.heroes;
+          this.loadLazy = false;
+        });
+        break;
+    }
   }
 
 }
