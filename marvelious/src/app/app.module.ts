@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,6 +11,8 @@ import { TimelineComponent } from './timeline-landing/timeline/timeline.componen
 import { HeroComponent } from './hero/hero.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { HeroDialogComponent } from './hero-dialog/hero-dialog.component';
+import { ParallaxModule, ParallaxConfig } from 'ngx-parallax';
+import { DataService } from './data.service';
 
 @NgModule({
   declarations: [
@@ -24,9 +27,11 @@ import { HeroDialogComponent } from './hero-dialog/hero-dialog.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     MglTimelineModule,
+    HttpClientModule,
+    ParallaxModule,
     MatDialogModule
   ],
-  providers: [],
+  providers: [DataService],
   entryComponents: [HeroDialogComponent],
   bootstrap: [AppComponent]
 })

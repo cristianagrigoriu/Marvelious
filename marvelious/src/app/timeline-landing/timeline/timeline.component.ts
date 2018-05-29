@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Hero } from '../../model';
 import { MatDialog } from '@angular/material/dialog';
 import { HeroDialogComponent } from '../../hero-dialog/hero-dialog.component';
+import * as moment from 'moment';
 
 @Component({
   selector: 'mrv-timeline',
@@ -28,5 +29,10 @@ export class TimelineComponent implements OnInit {
       console.log('The dialog was closed', result);
     });
   }
+
+  formatDate(date:string):string{
+    return moment(date).format('YYYY');
+  }
+
 
 }

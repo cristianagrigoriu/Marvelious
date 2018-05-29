@@ -1,4 +1,4 @@
-<figure [style.backgroundImage]="'url('+path+')'"></figure>
+<figure [style.backgroundImage]="'url('+hero.thumbnail.path+'.'+hero.thumbnail.extension+')'"></figure>
 <div class="details">
-  <h3>{{name}}</h3>
+  <h3>{{hero.title ? hero.title : hero.name}}</h3>
 </div>

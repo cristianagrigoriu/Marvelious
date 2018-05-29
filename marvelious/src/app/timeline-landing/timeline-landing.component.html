@@ -3,4 +3,23 @@
   <h4>and have a marvelious experience</h4>
 </header>
 
-<mrv-timeline [heroes]="heroes"></mrv-timeline>
+<section class='chooser' [class.disabled]="!current">
+  <h4>Choose data type</h4>
+  <ul>
+    <li><button (click)="focusEvents()" [class.active]="active=='events'">Events</button></li>
+    <li><button (click)="focusComics()" [class.active]="active=='comics'">Comics</button></li>
+    <li><button (click)="focusHeroes()" [class.active]="active=='heroes'">Heroes</button></li>
+  </ul>
+</section>
+
+<button (click)="goTop()" class='scroll-top-btn'>TOP</button>
+<button (click)="goBottom()" class='scroll-top-btn right'>BOTTOM</button>
+
+<ng-container *ngIf="current; else loadingTemplate">
+  <mrv-timeline *ngIf="current; else loadingTemplate" [heroes]="current"></mrv-timeline>
+  <div class='bottom-button'>
+    <button class='more' (click)="nextLazy()" [class.disabled]="loadLazy">Load more</button>
+  </div>
+</ng-container>
+<ng-container *ngIf="loadLazy"><div class='loading'>Loading...</div></ng-container>
+<ng-template #loadingTemplate><div class='loading'>Loading...</div></ng-template>
