@@ -5,10 +5,11 @@ export class Hero{
 	series?: HeroDetails;
 	stories?: HeroDetails;
 	thumbnail: HeroThumbnail;
-	title: string;
+	title?: string;
 	description: string;
 	start: any;
 	end: any;
+	name?: string;
 	resourceURI: string;
 }
 

@@ -11,7 +11,6 @@ import { TimelineComponent } from './timeline-landing/timeline/timeline.componen
 import { HeroComponent } from './hero/hero.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { HeroDialogComponent } from './hero-dialog/hero-dialog.component';
-import { ParallaxModule, ParallaxConfig } from 'ngx-parallax';
 import { DataService } from './data.service';
 
 @NgModule({
@@ -28,7 +27,6 @@ import { DataService } from './data.service';
     BrowserAnimationsModule,
     MglTimelineModule,
     HttpClientModule,
-    ParallaxModule,
     MatDialogModule
   ],
   providers: [DataService],
