@@ -1,0 +1,154 @@
+ <!DOCTYPE html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Marvelious</title>
+    <link rel="stylesheet" href="./css/scholarlyHTML.css">
+  </head>
+  <body prefix="schema: http://schema.org/ xsd: http://www.w3.org/2001/XMLSchema# sa: https://ns.science.ai/">
+    <header>
+      <p class="title">MARVELOUS</p>
+      <p class="subtitle">Interactive Presentation of the Marvel Cinematic Universe</p>
+    </header>
+    <article id="what" typeof="schema:ScholarlyArticle" resource="#">
+      <h1>MARVELOUS - ACCESSIBILITY REPORT</h1>
+      <section>
+        <ol>
+          <li property="schema:author" typeof="sa:ContributorRole">
+              <a property="schema:author" href="https://www.facebook.com/profile.php?id=100004539192858" typeof="schema:Person">
+                  <span property="schema:givenName">Adascalitei</span>
+                  <span property="schema:familyName">Anca</span>
+              </a>
+            <sup property="sa:roleContactPoint" typeof="schema:ContactPoint">
+              <a property="schema:email" href="mailto:andreeaandro19@gmail.com" title="corresponding author">&#9993;</a>
+            </sup>
+          </li>
+
+          <li property="schema:author" typeof="sa:ContributorRole">
+              <a property="schema:author" href="https://www.facebook.com/cristiana.grigoriu" typeof="schema:Person">
+                  <span property="schema:givenName">Grigoriu</span>
+                  <span property="schema:familyName">Cristiana</span>
+              </a>
+              <sup property="sa:roleContactPoint" typeof="schema:ContactPoint">
+              <a property="schema:email" href="mailto:cristiana.grigoriu@gmail.com" title="corresponding author">&#9993;</a>
+            </sup>
+          </li>
+
+          <li property="schema:author" typeof="sa:ContributorRole">
+              <a property="schema:author" href="https://www.facebook.com/ionut170" typeof="schema:Person">
+                  <span property="schema:givenName">Iacob</span>
+                  <span property="schema:familyName">Ionut</span>
+              </a>
+              <sup property="sa:roleContactPoint" typeof="schema:ContactPoint">
+              <a property="schema:email" href="mailto:#" title="corresponding author">&#9993;</a>
+            </sup>
+          </li>
+          
+        </ol>
+       <ol>
+         <li id="institution">
+              <a href="https://www.info.uaic.ro/bin/Main/" typeof="schema:Corporation">
+                <span property="schema:name">"Alexandru Ioan Cuza" University, Iasi, Faculty of Computer Science</span>
+              </a>
+          </li>
+        </ol>
+      </section>
+
+      <section typeof="sa:Abstract" id="abstract">
+        <h2>1 What is the app in short? - Abstract</h2>
+        <p>
+			The Marvelous App aims to present a complex visualisation of the Marvel Comic Universe. Both people who don't know the comics and die-hard fans will get the chance to interact, search and find out information about the characters and the events tying them up. The app is a fun and interesting way to discover the Marvel characters, through means of Virtual Reality, Timelines and Interactive Design.
+        </p>
+      </section>
+      
+      <section typeof="sa:MaterialsAndMethods" id="motivation">
+        <h2>2 Why do we do it? - Motivation</h2>
+        <p>
+			The Marvel Universe is inherently complex. With a multitude of characters and actions spanning several years and continents, it is difficult to know where to start or who interacts with whom. The movies don't cover all of the information and reading all the comics takes time. For poeple who have never interacted with the universe, the task to get to know it seems daunting, and die-hard fans would like an outlet to share all their knowledge.
+        </p>
+		<p>
+			Our solution aims to bridge this gap, by offering an interactive and easy way to discover the universe. We propose several solutions, of different complexities, aimed at different types of users, to help them understand the relationships between the characters. It is also a pleasant way of following your passion and could help build the hype before a new movie release.
+		</p>
+      </section>
+      
+        <section typeof="sa:MaterialsAndMethods" id="features">
+            <h2>3 What is accessibility?</h2>
+			
+			<h4>According to the <strong>Web Accessibility Initiative</strong>, web accessibility is the range at which all people, whatever their hardware, software, language, location, or ability are able to use the web. <i>"When the Web meets this goal, it is accessible to people with a diverse range of hearing, movement, sight, and cognitive ability."</i></h4>
+			<p>Thus, the aim of the web should be to make the barriers that people face in real life disappear, be they communication, interaction or motor barriers. The accessibility of a webite is measured in how well would people who live with cognitive, neurological, auditory, visual or other physical impairments interact, understand and work with a certain web application. Measuring web accessibility is not limited to people with disabilities, but to other categories as well, such as people accessing the application through different devices, such as smart phones, smart watches or other devices with small screens. It also applies to people with "temporary disabilities", such as a broken arm or lost glasses, to people with "situational limitations", such as bright sunlight or a loud area and even to people with slow internet connection or limited bandwidth.</p>
+			<p>In all of these cases, and not only, we want to be able to tell if users can efficiently use our applications.</p>
+			<img src="./css/images/tim_quote.png" alt="Universal Web">
+			   
+        </section>
+
+           
+		<section typeof="sa:MaterialsAndMethods" id="architecture">
+			<h2>4 What do we have here?</h2>
+				<h4>Home Screen - Presentation of main tabs and their roles, user options from home screen</h4>
+				<img src="./css/images/home_screen.png" alt="Home Screen">
+				<p>The user is able to see the three main tabs that help organize the information: <strong>Events</strong>, <strong>Comics</strong> and <strong>Heroes</strong>. The information contained in each tab is self-explanatory. Once the user selects his/her option, the data regarding each tab is loaded and displayed in the screen below.</p>
+				<img src="./css/images/comics_timeline.png" alt="Comics Timeline">
+				<p>The user sees the information ordered chronologically, by year, with the most recent information on top. Clicking on a picture, he/she can also read more details about that specific item.</p>
+				<p>The user also has the option to scroll directly to the Bottom or back to the Top.</p>
+				
+        </section> 
+		   
+		<section typeof="sa:MaterialsAndMethods" id="architecture">
+			<h2>5 How do we measure accessibility?</h2>
+			<p>The accessibility of an application concerns the degree to which it can be used effectively by people with various disabilities or impairments. It has to be taken into consideration initially, right from the design phase and checked constantly. While there are several tools one can use to measure and test the accessibility of an application, one should also use real-life user testing to have a more thourough and accurate idea.</p>
+			<p>In the following, we will present parts of the Accessibility Checklist and some of the tools we've used to test the Marvelious application.</p>
+			
+			<h3>Accessibility Checklist</h3>
+			<p>The full accessibility checklist can be found <a href="http://romeo.elsevier.com/accessibility_checklist/" target="_blank">here</a>. It includes aspects like presenting alternatives - video, audio or images for your content, design aspects - such as the color pallete, the contrast and the text size, making functionalities available from the keyboard, help in navigating the web application and more.</p>
+			<p>A report on this checklist for our website is hereby presented in this work: although the app passed the Accessibility Checklist, it includes some suggestions on what to be careful about.</p>
+			<img src="./css/images/checklist.png" alt="Checklist Snippet">
+			<h6>A snippet of the Accessibility Checklist report results</h6>
+			<p>The Tool used to test the Accessibility Checklist is <a href="https://achecker.ca/checker/index.php" target="_blank">this one</a>. It identifies three types of problems with the HTML page: known, likely and potential.</p>
+			<img src="./css/images/ac checker.png" alt="Checklist Results">
+			<p>As you can see, the app has no known or likely problems. The tool identified, however, 16 potential problems. These include making it keyboard accessible and simplifying the content. A full report of the potential problems is attached.</p>
+			
+			<h3>Web Accessibility Tool</h3>
+			<p><a href="https://webaccessibility.com" target="_blank">This tool</a> is a fast, automated testing tool that determines if the website is accessible to people with disabilities, including how does the app behave when the user magnifies the screen or switches controls.</p>
+			<p>Below are the results of the Accessibility Tool test:</p>
+			<img src="./css/images/accessibility.png" alt="Accessibility Results">
+			<p>As you can see, the application had a score of 90%, meaning it overall complies with the Accessibility Acts.</p>
+			
+			<h3>WAVE - Web Accessibility Evaluation Tool</h3>
+			<p><a href="http://wave.webaim.org/report#/https://cristianagrigoriu.github.io/Marvelious/" target="_blank">WAVE</a>, short for Web Accessibility Evaluation Tool is a free community service tool, used to test apps' accessibility since 2001. It also provides an API, analytics, and various ways to present the data regarding the measurements done on your application.</p>
+			<p>Below are the results of the WAVE test:</p>
+			<img src="./css/images/3. test results a.png" alt="WAVE Results">
+			<img src="./css/images/3. test results b.png" alt="WAVE Results">
+			The general impression, after this test, is that the app is mostly compliant with the accessibility standards.
+			
+        </section> 
+        
+
+		
+		<section> 
+        <h2>6 Where can we go from here? - Conclusion</h2>
+        <p>We have established that the accessibility of a web application is important and should be tested properly, as the web should be accessible to everyone, everywhere. There are various tools that test out this aspect and we have used several of them.</p>
+		<p>Overall, the app is compliant with the accessibility standards, as shown by the results presented. There is, however, room for improvement, as the app could add further ways to present the information in a simpler way or in audio form or could add keyboard shortcuts, to name a few.</p>
+        </section>
+
+        <section typeof="sa:MaterialsAndMethods" id="conclusion">
+        <h2>7 Where did we get inspired from? - Bibliography</h2>
+		<ol>
+			<li><a href="http://www.firewatchgame.com/" target="_blank">http://www.firewatchgame.com/</a></li>
+			<li><a href="https://www.jsconfar.com/" target="_blank">https://www.jsconfar.com/</a></li>
+			<li><a href="http://marvel.com/" target="_blank">marvel.com</a></li>
+			<li><a href="https://balsamiq.com" target="_blank">Balsamiq</a></li>
+			<li><a href="https://www.w3.org/WAI/" target="_blank">Web Accessibility Initiative</a></li>
+			<li><a href="http://romeo.elsevier.com/accessibility_checklist/" target="_blank">Web Accessibility Checklist</a></li>
+			<li><a href="https://achecker.ca/checker/index.php" target="_blank">Web Accessibility Checklist Tool</a></li>
+			<li><a href="https://webaccessibility.com" target="_blank">Web Accessibility</a></li>
+			<li><a href="http://wave.webaim.org/report#/https://cristianagrigoriu.github.io/Marvelious/" target="_blank">Web Accessibility Evaluation Tool</a></li>	
+
+			
+			
+			
+		</ol>
+        </section>
+    </article>
+  </body>
+</html>

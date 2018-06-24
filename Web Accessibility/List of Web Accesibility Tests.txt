@@ -1,0 +1,4 @@
+1. https://webaccessibility.com
+2. http://romeo.elsevier.com/accessibility_checklist/
+3. http://wave.webaim.org/report#/https://cristianagrigoriu.github.io/Marvelious/
+4. https://achecker.ca/checker/index.php#output_div
