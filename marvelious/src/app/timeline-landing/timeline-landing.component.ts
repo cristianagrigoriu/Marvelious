@@ -20,6 +20,7 @@ export class TimelineLandingComponent implements OnInit {
   heroes: Hero[];
   comics: Hero[];
   active: string;
+  searchTerm: string;
 
   constructor(private dataService: DataService) {
 
@@ -44,34 +45,34 @@ export class TimelineLandingComponent implements OnInit {
     this.focus(FocusType.Heroes);
   }
 
-  focus(entry: FocusType){
+  focus(entry: any){
     this.current = undefined;
     switch(entry){
       case FocusType.Comics:
-        if (this.comics){
+        if (this.comics && this.searchTerm.length < 1){
           this.current = this.comics;
         } else{
-          this.dataService.getComics().subscribe((res:Hero[])=>{
+          this.dataService.getComics(0, this.searchTerm).subscribe((res:Hero[])=>{
             this.comics = res;
             this.current = res;
           });
         }
         break;
       case FocusType.Events:
-        if (this.events){
+        if (this.events && this.searchTerm.length < 1){
           this.current = this.events;
         } else{
-          this.dataService.getEvents().subscribe((res:Hero[])=>{
+          this.dataService.getEvents(0, this.searchTerm).subscribe((res:Hero[])=>{
             this.events = res;
             this.current = res;
           });
         }
         break;
       case FocusType.Heroes:
-        if (this.heroes){
+        if (this.heroes && this.searchTerm.length < 1){
           this.current = this.heroes;
         } else{
-          this.dataService.getHeroes().subscribe((res:Hero[])=>{
+          this.dataService.getHeroes(0, this.searchTerm).subscribe((res:Hero[])=>{
             this.heroes = res;
             this.current = res;
           });
@@ -118,21 +119,21 @@ export class TimelineLandingComponent implements OnInit {
     this.loadLazy = true;
     switch(entry){
       case FocusType.Comics:
-        this.dataService.getComics(this.comics.length).subscribe((res:Hero[])=>{
+        this.dataService.getComics(this.comics.length, this.searchTerm).subscribe((res:Hero[])=>{
           this.comics.push(...res);
           this.current = this.comics;
           this.loadLazy = false;
         });
         break;
       case FocusType.Events:
-        this.dataService.getEvents(this.events.length).subscribe((res:Hero[])=>{
+        this.dataService.getEvents(this.events.length, this.searchTerm).subscribe((res:Hero[])=>{
           this.events.push(...res);
           this.current = this.events;
           this.loadLazy = false;
         });
         break;
       case FocusType.Heroes:
-        this.dataService.getHeroes(this.heroes.length).subscribe((res:Hero[])=>{
+        this.dataService.getHeroes(this.heroes.length, this.searchTerm).subscribe((res:Hero[])=>{
           this.heroes.push(...res);
           this.current = this.heroes;
           this.loadLazy = false;

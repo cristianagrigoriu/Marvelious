@@ -13,6 +13,10 @@
     <li><button (click)="focusComics()" [class.active]="active=='comics'">Comics</button></li>
     <li><button (click)="focusHeroes()" [class.active]="active=='heroes'">Heroes</button></li>
   </ul>
+  <div class='search-group'>
+    <input [(ngModel)]="searchTerm" />
+    <button (click)="focus(active)">Search</button>
+  </div>
 </section>
 
 <button (click)="goTop()" class='scroll-top-btn'>TOP</button>

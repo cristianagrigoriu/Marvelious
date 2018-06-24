@@ -175,3 +175,21 @@ button.more{
 	right: 20px;
 	background-color: #1D2671;
 }
+
+.search-group{
+	display: flex;
+	flex-direction: row;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	input, button{
+		border: none;
+		padding: 10px 20px;
+	}
+
+	button{
+		background: black;
+		color: white;
+		display: flex;
+		cursor: pointer;
+	}
+}

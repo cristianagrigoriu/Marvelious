@@ -20,15 +20,27 @@ export class DataService {
   constructor(private http: HttpClient) {
   }
 
-  getEvents(offset: number = 0):Observable<Hero[]>{
-    return this.http.get(`https://gateway.marvel.com:443/v1/public/events?orderBy=-startDate&limit=${this.limit}&offset=${offset}&apikey=${this.publicKey}`).pipe(map((res:any)=>res.data.results));
+  getEvents(offset: number = 0, search?: string):Observable<Hero[]>{
+    let searchVal: string = '';
+    if (search){
+      searchVal = `&nameStartsWith=${search}`;
+    }
+    return this.http.get(`https://gateway.marvel.com:443/v1/public/events?orderBy=-startDate&limit=${this.limit}&offset=${offset}&apikey=${this.publicKey}${searchVal}`).pipe(map((res:any)=>res.data.results));
   }
 
-  getComics(offset: number = 0):Observable<Hero[]>{
-    return this.http.get(`https://gateway.marvel.com:443/v1/public/comics?orderBy=-onsaleDate&limit=${this.limit}&offset=${offset}&apikey=${this.publicKey}`).pipe(map((res:any)=>res.data.results));
+  getComics(offset: number = 0, search?: string):Observable<Hero[]>{
+    let searchVal: string = '';
+    if (search){
+      searchVal = `&titleStartsWith=${search}`;
+    }
+    return this.http.get(`https://gateway.marvel.com:443/v1/public/comics?orderBy=-onsaleDate&limit=${this.limit}&offset=${offset}&apikey=${this.publicKey}${searchVal}`).pipe(map((res:any)=>res.data.results));
   }
 
-  getHeroes(offset: number = 0):Observable<Hero[]>{
-    return this.http.get(`https://gateway.marvel.com:443/v1/public/characters?orderBy=name&limit=${this.limit}&offset=${offset}&apikey=${this.publicKey}`).pipe(map((res:any)=>res.data.results));
+  getHeroes(offset: number = 0, search?: string):Observable<Hero[]>{
+    let searchVal: string = '';
+    if (search){
+      searchVal = `&nameStartsWith=${search}`;
+    }
+    return this.http.get(`https://gateway.marvel.com:443/v1/public/characters?orderBy=name&limit=${this.limit}&offset=${offset}&apikey=${this.publicKey}${searchVal}`).pipe(map((res:any)=>res.data.results));
   }
 }
